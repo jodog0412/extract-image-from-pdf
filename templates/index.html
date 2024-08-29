@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Extract Image from PDF</title>
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', path='/dog.png') }}"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', path='/main.css') }}" />
+  </head>
+  <body>
+    <img src="{{ url_for('static', path='/dog.png') }}" class="icon" />
+    <h3>Extract Image from PDF</h3>
+    <form action="/" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" id="file" required />
+      <br></br>
+      <input type="submit" value="Send"/>
+    </form>
+  </body>
+</html>

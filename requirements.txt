@@ -1,0 +1,10 @@
+chromadb
+pypdf
+openai
+fastapi
+jinja2
+python-multipart
+pymupdf
+opencv-python
+pillow
+requests
