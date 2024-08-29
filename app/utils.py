@@ -27,10 +27,14 @@ def extract_graph_image(image_path: str):
         "content": [
             {
             "type": "text",
-            "text": "Find a position of graph in the image. \
+            "text": "Find a graph's location in the image. \
                 graph has few linear-dotted-lines. \
-                Then, write coordinate of left-upper part and coordinate of right-lower part.\
-                Write coordinate using the following template.\
+                Then, list 4 integers in one line. \
+                First number indicates x position of left-upper part in graph section.\
+                Second number indicates y position of left-upper part in graph section.\
+                Third number indicates x position of right-lower part in graph section.\
+                Last number indicates y position of right-lower part in graph section.\
+                list 4 integers, use the following template.\
                 50, 50, 200, 200"
             },
             {
@@ -48,7 +52,7 @@ def extract_graph_image(image_path: str):
     response = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
 
     pos = re.findall(r'\d+', response.json()['choices'][0]['message']['content'])
-    pos = tuple([int(num) for num in pos[:4]])
+    pos = tuple([int(num) for num in pos])
 
     image = Image.open(image_path)
 
